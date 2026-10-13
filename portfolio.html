@@ -1,90 +1,417 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kishanth G | Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #FAF7F0;
+            color: #292524;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 7%;
+            background: #FAF7F0;
+            border-bottom: 1px solid #E7E2D8;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 900;
+            color: #166534;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        nav ul a:hover {
+            color: #166534;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 300px;
+            padding: 45px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background: linear-gradient(120deg, #E8F0E5, #FAF7F0);
+        }
+
+        .intro, .section-label {
+            color: #166534;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin: 8px 0;
+        }
+
+        .hero h1 span {
+            color: #166534;
+        }
+
+        .hero h2 {
+            font-size: 19px;
+            font-weight: 400;
+            color: #57534E;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #57534E;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #166534;
+            color: white;
+            padding: 9px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #14532D;
+        }
+
+        /* Common sections */
+        section {
+            padding: 30px 8%;
+        }
+
+        .section-title {
+            font-size: 27px;
+            margin: 3px 0 12px;
+        }
+
+        .about p {
+            max-width: 900px;
+            color: #57534E;
+            font-size: 15px;
+        }
+
+        /* Skills */
+        .skills-section {
+            background: #F0EDE4;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .skills span {
+            padding: 7px 14px;
+            border: 1px solid #A7BCA5;
+            border-radius: 4px;
+            background: #FAF7F0;
+            color: #166534;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .skills span:hover {
+            background: #166534;
+            color: white;
+        }
+
+        /* Education */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            max-width: 850px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid #D6D3C8;
+            font-size: 14px;
+        }
+
+        th {
+            color: #166534;
+            background: #E8F0E5;
+        }
+
+        td {
+            color: #57534E;
+        }
+
+        /* Projects */
+        .projects-section {
+            background: #F0EDE4;
+        }
+
+        .projects {
+            list-style: none;
+        }
+
+        .projects li {
+            padding: 10px 0;
+            border-bottom: 1px solid #D6D3C8;
+        }
+
+        .project-number {
+            color: #166534;
+            font-weight: 900;
+            margin-right: 8px;
+        }
+
+        .projects strong {
+            font-size: 16px;
+        }
+
+        .projects p {
+            color: #57534E;
+            font-size: 14px;
+            margin-left: 30px;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+            background: #E8F0E5;
+        }
+
+        .contact .section-title {
+            margin-bottom: 8px;
+        }
+
+        .contact p {
+            font-size: 14px;
+            margin: 5px 0;
+            color: #57534E;
+        }
+
+        .contact a:not(.btn) {
+            color: #166534;
+            font-weight: 700;
+        }
+
+        .contact .btn {
+            margin-top: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background: #14532D;
+            color: #FAF7F0;
+            text-align: center;
+            padding: 12px;
+            font-size: 13px;
+        }
+
+        /* Mobile */
+        @media (max-width: 650px) {
+            nav {
+                flex-direction: column;
+                gap: 8px;
+                padding: 12px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 270px;
+                padding: 35px 6%;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero h2 {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 25px 6%;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            th, td {
+                padding: 8px;
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
-<body style="font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #e0f2fe, #f8fafc);color: #213047; margin: 40px;">
+<body>
 
-    <div style="background: linear-gradient(135deg, #e0f2fe, #f8fafc);color: #22324b; padding: 30px; border-radius: 10px;">
-
-        <h1 style="text-align: center;">
-            Kishanth G
-        </h1>
-
-        <p style="text-align: center; color: #4b2b75;">
-            AI & Data Science Student | Programmer | Developer
-        </p>
-
-        <hr>
-
-        <h2 >About Me</h2>
-
-        <p style="font-size: 16px; line-height: 1.6;color: #4b2b75;">
-            Hello! I am Kishanth, an Artificial Intelligence and Data Science
-            student interested in programming, web development, machine learning,
-            and building useful real-world projects.
-        </p>
-
-        <h2 >Skills</h2>
-
-        <ul style="line-height: 1.8;color: #4b2b75;">
-            <li>Python</li>
-            <li>Java</li>
-            <li>C / C++</li>
-            <li>HTML & CSS</li>
-            <li>JavaScript</li>
-            <li>Machine Learning</li>
+    <nav>
+        <a href="#home" class="logo">Kishanth.</a>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
+    </nav>
 
-        <h2 >Education</h2>
+    <header class="hero" id="home">
+        <p class="intro">Welcome to my portfolio</p>
+        <h1>Hi, I'm <span>Kishanth G</span></h1>
+        <h2>AI & Data Science Student | Programmer | Developer</h2>
+        <p>
+            I enjoy exploring technology, solving problems through programming,
+            and building useful applications using web development and machine learning.
+        </p>
+        <a href="#projects" class="btn">Explore My Projects &rarr;</a>
+    </header>
 
-        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-            <tr style="background-color: #1e293b;; color: #f9f9f9;">
-                <th style="padding: 10px; border: 1px solid #ddd;">Course</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Institution</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Year</th>
-            </tr>
+    <section id="about">
+        <p class="section-label">Get to know me</p>
+        <h2 class="section-title">About Me</h2>
+        <div class="about">
+            <p>
+                Hello! I am Kishanth, a B.Tech Artificial Intelligence and Data
+                Science student at KIT. I am interested in programming, web
+                development, machine learning, and software development.
+                I enjoy learning new technologies, participating in hackathons,
+                and turning ideas into practical projects.
+            </p>
+        </div>
+    </section>
 
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;color: #4b2b75;">
-                    B.Tech AI & Data Science
-                </td>
-                <td style="padding: 10px; border: 1px solid #ddd;color: #4b2b75;">
-                    KIT
-                </td>
-                <td style="padding: 10px; border: 1px solid #ddd;color: #4b2b75;">
-                    2024 - 2028
-                </td>
-            </tr>
-        </table>
+    <section class="skills-section" id="skills">
+        <p class="section-label">What I work with</p>
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills">
+            <span>Python</span>
+            <span>Java</span>
+            <span>C / C++</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Machine Learning</span>
+        </div>
+    </section>
 
-        <h2 >Projects</h2>
+    <section id="education">
+        <p class="section-label">Academic background</p>
+        <h2 class="section-title">Education</h2>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Course</th>
+                    <th>Institution</th>
+                    <th>Year</th>
+                </tr>
+                <tr>
+                    <td>B.Tech AI & Data Science</td>
+                    <td>KIT</td>
+                    <td>2024 - 2028</td>
+                </tr>
+            </table>
+        </div>
+    </section>
 
-        <ol style="line-height: 1.8;color: #4b2b75;">
-            <li>Smart Medicine Box</li>
-            <li>MedStore Pharmacy Website</li>
-            <li>Market Segmentation using Machine Learning</li>
+    <section class="projects-section" id="projects">
+        <p class="section-label">What I have built</p>
+        <h2 class="section-title">My Projects</h2>
+        <ol class="projects">
+            <li>
+                <span class="project-number">01.</span>
+                <strong>Smart Medicine Box</strong>
+                <p>A project designed to help users manage medicine reminders.</p>
+            </li>
+            <li>
+                <span class="project-number">02.</span>
+                <strong>MedStore Pharmacy Website</strong>
+                <p>A website designed for pharmacy-related services.</p>
+            </li>
+            <li>
+                <span class="project-number">03.</span>
+                <strong>Market Segmentation Using Machine Learning</strong>
+                <p>A machine learning project that groups customers based on their data.</p>
+            </li>
         </ol>
+    </section>
 
-        <h2 >Contact</h2>
-
-        <p style="color: #4b2b75;">
-            Email:
-            <span style="color: #497fcc;">kishanth@example.com</span>
+    <section class="contact" id="contact">
+        <p class="section-label">Let's connect</p>
+        <h2 class="section-title">Contact Me</h2>
+        <p>Email:
+            <a href="mailto:kishanth@example.com">kishanth@example.com</a>
         </p>
-
-        <p style="color: #4b2b75;">
-            GitHub:
-            <span style="color:  #497fcc;">github.com/Kishanth15</span>
+        <p>GitHub:
+            <a href="https://github.com/Kishanth15" target="_blank" rel="noopener noreferrer">
+                github.com/Kishanth15
+            </a>
         </p>
+        <a href="mailto:kishanth@example.com" class="btn">Get in Touch</a>
+    </section>
 
-        <p style="text-align: center; background-color: #1e293b;; color: white; padding: 15px;">
-            Kishanth G | My Portfolio
-        </p>
-
-    </div>
+    <footer>
+        <p>&copy; 2026 Kishanth G | All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
